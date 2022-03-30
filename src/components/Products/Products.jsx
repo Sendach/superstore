@@ -5,7 +5,7 @@ import useStyles from './styles';
 
 const Products = ({ products, onAddToCart }) => {
   const classes = useStyles();
-  console.log(3)
+
   return (
     <main className={classes.content}>
       <div className={classes.toolbar} />
@@ -17,7 +17,7 @@ const Products = ({ products, onAddToCart }) => {
         ))}
       </Grid>
     </main>
-  )
+  );
 }
 
 export default Products;

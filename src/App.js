@@ -7,10 +7,10 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
+
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
-
     setProducts(data);
   }
 
@@ -20,22 +20,22 @@ const App = () => {
 
   const handleAddToCart = async (productId, quantity) => {
     const { cart } = await commerce.cart.add(productId, quantity);
-    setCart(cart)
+    setCart(cart);
   }
 
   const handleUpdateCartQty = async (productId, quantity) => {
-    const { cart } = await commerce.cart.update(productId, { quantity })
-    setCart(cart)
+    const { cart } = await commerce.cart.update(productId, { quantity });
+    setCart(cart);
   }
 
   const handleRemoveFromCart = async (productId) => {
     const { cart } = await commerce.cart.remove(productId);
-    setCart(cart)
+    setCart(cart);
   }
 
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty();
-    setCart(cart)
+    setCart(cart);
   }
 
   const refreshCart = async () => {
@@ -49,7 +49,7 @@ const App = () => {
       setOrder(incomingOrder);
       refreshCart();
     } catch (error) {
-      setErrorMessage(error.data.error.message)
+      setErrorMessage(error.data.error.message);
     }
   }
 
@@ -64,7 +64,13 @@ const App = () => {
       <Navbar totalItemsInCart={cart.total_items} />
       <Routes>
         <Route path='/' element={<Products products={products} onAddToCart={handleAddToCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} commerce={commerce} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart}/>}/>
+        <Route path="/cart" 
+          element={<Cart cart={cart}
+          commerce={commerce}
+          handleUpdateCartQty={handleUpdateCartQty}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleEmptyCart={handleEmptyCart}/>}
+        />
         <Route path='/checkout' element={<Checkout cart={cart} order={order} handleCaptureCheckout={handleCaptureCheckout} error={errorMessage}/>}/>
       </Routes>
     </Router>

@@ -45,10 +45,10 @@ const PaymentForm = ({ shippingData, checkoutToken, nextStep, backStep, handleCa
           stripe: {
             payment_method_id: paymentMethod.id
           }
-        }
+        },
       }
-
       handleCaptureCheckout(checkoutToken.id, orderData);
+  
       nextStep();
     }
   }

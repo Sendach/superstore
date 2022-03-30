@@ -12,7 +12,7 @@ const Cart = ({ cart, commerce, handleUpdateCartQty, handleRemoveFromCart, handl
   const EmptyCart = () => {
     return ( 
       <Typography variant="subtitle1">Your cart is empty! <Link to='/' className={classes.link}>Click here to add items</Link></Typography>
-    )
+    );
   }
 
   const FilledCart = () => {
@@ -29,7 +29,7 @@ const Cart = ({ cart, commerce, handleUpdateCartQty, handleRemoveFromCart, handl
           <Typography variant="h4">Subtotal: { cart.subtotal.formatted_with_symbol }</Typography>
           <div>
             <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={() => handleEmptyCart()}>Empty Cart</Button>
-            <Link to='/checkout' style={{textDecoration: 'none'}}><Button className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">Checkout</Button></Link>
+            <Button component={Link} to='/checkout' className={classes.checkoutButton} size="large" type="button" variant="contained" color="primary">Checkout</Button>
           </div>
         </div>
       </>
@@ -44,7 +44,7 @@ const Cart = ({ cart, commerce, handleUpdateCartQty, handleRemoveFromCart, handl
       <Typography className={classes.title} variant="h3">Your shopping Cart</Typography>
       {!cart.line_items.length ? <EmptyCart /> : <FilledCart /> }
     </Container>
-  )
+  );
 }
 
 export default Cart;

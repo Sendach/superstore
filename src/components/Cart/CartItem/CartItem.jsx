@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core'
-import useStyles from './styles'
+import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
+import useStyles from './styles';
 
 const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
   const classes = useStyles();
@@ -22,7 +22,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
         <Button variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>Remove</Button>
       </CardActions>
     </Card>
-  )
+  );
 }
 
 export default CartItem;

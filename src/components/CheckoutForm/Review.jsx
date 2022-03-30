@@ -20,7 +20,7 @@ const Review = ({ checkoutToken }) => {
         </ListItem>
       </List>
     </>
-  )
+  );
 }
 
 export default Review;
